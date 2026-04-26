@@ -6,15 +6,16 @@
   <title>Harmany Technologies</title>
   <style>
     :root {
-      --bg: #020617;
-      --panel: #071326;
-      --panel-soft: #0b1f3a;
-      --blue: #38bdf8;
-      --blue-strong: #2563eb;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --line: rgba(56, 189, 248, 0.24);
-      --glow: rgba(56, 189, 248, 0.35);
+      --navy: #020817;
+      --deep: #06162b;
+      --panel: rgba(7, 22, 43, 0.86);
+      --blue: #00aaff;
+      --blue2: #1d4ed8;
+      --gold: #f8c84c;
+      --white: #f8fafc;
+      --muted: #b8c7d9;
+      --line: rgba(0, 170, 255, 0.28);
+      --shadow: rgba(0, 170, 255, 0.32);
     }
 
     * {
@@ -24,11 +25,8 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 32%),
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.22), transparent 30%),
-        linear-gradient(180deg, #020617 0%, #071326 48%, #020617 100%);
-      color: var(--text);
+      background: var(--navy);
+      color: var(--white);
       overflow-x: hidden;
     }
 
@@ -36,54 +34,68 @@
       content: "";
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-      pointer-events: none;
-      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(0, 170, 255, 0.25), transparent 28%),
+        radial-gradient(circle at 82% 8%, rgba(29, 78, 216, 0.28), transparent 30%),
+        linear-gradient(120deg, rgba(0, 170, 255, 0.06), transparent 38%),
+        linear-gradient(180deg, #020817 0%, #06162b 52%, #020817 100%);
+      z-index: -3;
     }
 
-    header {
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 170, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 170, 255, 0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.8;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .top-bar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      padding: 20px 8%;
+      z-index: 20;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: rgba(2, 6, 23, 0.82);
-      backdrop-filter: blur(14px);
+      justify-content: space-between;
+      padding: 18px 7%;
+      background: rgba(2, 8, 23, 0.82);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      font-size: 21px;
+      gap: 14px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--blue), var(--blue-strong));
-      box-shadow: 0 0 28px var(--glow);
-      color: #020617;
+      background: linear-gradient(135deg, #0b2f5c, #00aaff);
+      box-shadow: 0 0 28px var(--shadow);
+      color: white;
+      font-size: 28px;
       font-weight: 900;
     }
 
     nav a {
-      color: #cbd5e1;
+      color: #d7e7f7;
       text-decoration: none;
       margin-left: 26px;
       font-size: 15px;
+      font-weight: 700;
     }
 
     nav a:hover {
@@ -91,335 +103,423 @@
     }
 
     .hero {
-      min-height: 82vh;
-      padding: 92px 8% 70px;
+      min-height: 88vh;
+      padding: 78px 7% 64px;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 48px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
       align-items: center;
+      position: relative;
     }
 
-    .badge {
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 999px;
+      gap: 10px;
+      padding: 10px 16px;
       border: 1px solid var(--line);
-      background: rgba(7, 19, 38, 0.78);
-      color: #bae6fd;
-      font-size: 14px;
-      margin-bottom: 22px;
+      border-radius: 999px;
+      background: rgba(7, 22, 43, 0.76);
+      color: #bfefff;
+      font-weight: 800;
+      margin-bottom: 24px;
+      box-shadow: 0 0 24px rgba(0, 170, 255, 0.12);
     }
 
-    .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
+    .spark {
+      width: 10px;
+      height: 10px;
       background: var(--blue);
+      border-radius: 50%;
       box-shadow: 0 0 18px var(--blue);
     }
 
-    .hero h1 {
+    h1 {
       margin: 0;
-      font-size: clamp(42px, 6vw, 74px);
-      line-height: 0.98;
-      letter-spacing: -2px;
+      max-width: 760px;
+      font-size: clamp(44px, 6.4vw, 82px);
+      line-height: 0.95;
+      letter-spacing: -2.8px;
+      text-transform: uppercase;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, #7dd3fc, #2563eb);
-      background-clip: text;
-      color: transparent;
+    .blue-text {
+      color: var(--blue);
+      text-shadow: 0 0 24px rgba(0, 170, 255, 0.35);
     }
 
-    .hero p {
+    .hero-copy p {
+      color: #d7e7f7;
       max-width: 680px;
-      color: #cbd5e1;
       font-size: 20px;
-      line-height: 1.7;
-      margin: 26px 0 34px;
+      line-height: 1.72;
+      margin: 28px 0 32px;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
-      flex-wrap: wrap;
       gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .button {
+    .btn {
       display: inline-block;
-      padding: 15px 22px;
+      padding: 15px 24px;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 800;
-      color: #020617;
-      background: linear-gradient(135deg, #7dd3fc, #2563eb);
-      box-shadow: 0 0 34px rgba(37, 99, 235, 0.35);
+      font-weight: 900;
+      color: #031225;
+      background: linear-gradient(135deg, #5ee7ff, #0077ff);
+      box-shadow: 0 0 34px rgba(0, 170, 255, 0.35);
     }
 
-    .button.secondary {
-      color: #e0f2fe;
-      background: rgba(7, 19, 38, 0.7);
+    .btn.secondary {
+      color: #e8f8ff;
+      background: rgba(7, 22, 43, 0.74);
       border: 1px solid var(--line);
       box-shadow: none;
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 470px;
+    .hero-card {
+      min-height: 520px;
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-radius: 32px;
       background:
-        radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.24), transparent 26%),
-        linear-gradient(145deg, rgba(7, 19, 38, 0.96), rgba(2, 6, 23, 0.96));
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 60px rgba(56, 189, 248, 0.16);
+        linear-gradient(140deg, rgba(7, 22, 43, 0.96), rgba(2, 8, 23, 0.98)),
+        url('homepage.png');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 34px 100px rgba(0, 0, 0, 0.54), 0 0 70px rgba(0, 170, 255, 0.18);
       overflow: hidden;
-      padding: 28px;
+      position: relative;
+      padding: 26px;
     }
 
-    .hero-visual::before {
+    .hero-card::before {
       content: "";
       position: absolute;
-      inset: 18px;
-      border-radius: 22px;
-      border: 1px solid rgba(125, 211, 252, 0.18);
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(2, 8, 23, 0.18), rgba(2, 8, 23, 0.56)),
+        radial-gradient(circle at 70% 18%, rgba(0, 170, 255, 0.3), transparent 34%);
       pointer-events: none;
     }
 
-    .dashboard-bar {
+    .display-panel {
+      position: relative;
+      height: 100%;
+      min-height: 470px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(2, 8, 23, 0.62);
+      padding: 26px;
       display: flex;
-      gap: 8px;
-      margin-bottom: 26px;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: #38bdf8;
-      opacity: 0.85;
+    .panel-title {
+      font-size: 21px;
+      font-weight: 900;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
 
-    .matrix-lines {
+    .panel-title span {
+      color: var(--blue);
+    }
+
+    .mini-grid {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
-      margin-top: 20px;
+      margin-top: 24px;
     }
 
-    .data-line {
-      height: 13px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.9), rgba(37, 99, 235, 0.25), transparent);
+    .mini-box {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(8, 31, 58, 0.82);
+      border: 1px solid rgba(0, 170, 255, 0.22);
     }
 
-    .data-line:nth-child(2) { width: 78%; }
-    .data-line:nth-child(3) { width: 62%; }
-    .data-line:nth-child(4) { width: 88%; }
-
-    .orb {
-      position: absolute;
-      right: 52px;
-      bottom: 50px;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 32% 28%, #ffffff, #7dd3fc 18%, #2563eb 48%, #020617 72%);
-      box-shadow: 0 0 60px rgba(56, 189, 248, 0.55);
-    }
-
-    .floating-card {
-      position: absolute;
-      left: 34px;
-      bottom: 42px;
-      width: 250px;
-      padding: 20px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(2, 6, 23, 0.78);
-      backdrop-filter: blur(10px);
-    }
-
-    .floating-card strong {
+    .mini-box strong {
+      color: white;
       display: block;
-      margin-bottom: 8px;
-      color: #e0f2fe;
+      margin-bottom: 7px;
+      font-size: 14px;
+      text-transform: uppercase;
     }
 
-    .floating-card span {
+    .mini-box span {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.5;
     }
 
-    section {
-      padding: 80px 8%;
+    .hero-logos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 22px;
     }
 
-    .section-head {
-      max-width: 830px;
+    .hero-logo-box {
+      height: 118px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 170, 255, 0.22);
+      background: #020817;
+    }
+
+    .hero-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    section {
+      padding: 84px 7%;
+    }
+
+    .section-title {
+      max-width: 900px;
       margin-bottom: 42px;
     }
 
-    .section-head h2 {
-      font-size: clamp(34px, 4vw, 52px);
+    .section-title h2 {
       margin: 0 0 16px;
-      letter-spacing: -1px;
+      font-size: clamp(36px, 4.8vw, 58px);
+      line-height: 1;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
     }
 
-    .section-head p {
-      color: #b6c3d1;
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
       font-size: 18px;
       line-height: 1.7;
-      margin: 0;
     }
 
-    .cards {
+    .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 24px;
     }
 
-    .card {
-      position: relative;
-      border-radius: 24px;
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(11, 31, 58, 0.92), rgba(7, 19, 38, 0.92));
+    .app-card {
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(7, 22, 43, 0.95), rgba(2, 8, 23, 0.96));
       border: 1px solid var(--line);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+      box-shadow: 0 22px 80px rgba(0, 0, 0, 0.42);
       overflow: hidden;
+      position: relative;
     }
 
-    .card::after {
+    .app-card::after {
       content: "";
       position: absolute;
-      inset: auto -50px -80px auto;
-      width: 160px;
-      height: 160px;
-      background: rgba(56, 189, 248, 0.16);
+      inset: auto -60px -90px auto;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      filter: blur(8px);
+      background: rgba(0, 170, 255, 0.18);
+      filter: blur(12px);
+      pointer-events: none;
     }
 
-    .app-image {
-      height: 178px;
-      border-radius: 18px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(125, 211, 252, 0.24);
-      background: #061124;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
+    .logo-wrap {
+      height: 250px;
+      background: #000;
+      border-bottom: 1px solid var(--line);
     }
 
-    .app-image svg {
+    .logo-wrap img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .card h3 {
-      font-size: 25px;
+    .app-content {
+      padding: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .app-content h3 {
       margin: 0 0 12px;
+      font-size: 25px;
+      color: white;
     }
 
-    .card p {
-      color: #b6c3d1;
-      line-height: 1.65;
-      font-size: 16px;
+    .app-content p {
       margin: 0;
+      color: #b8c7d9;
+      line-height: 1.65;
+      font-size: 15.5px;
     }
 
     .status {
       display: inline-block;
       margin-top: 18px;
-      padding: 8px 12px;
+      padding: 8px 13px;
       border-radius: 999px;
-      color: #e0f2fe;
-      border: 1px solid var(--line);
-      background: rgba(56, 189, 248, 0.1);
+      color: #dff6ff;
+      border: 1px solid rgba(0, 170, 255, 0.32);
+      background: rgba(0, 170, 255, 0.1);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .about-grid {
+    .feature-band {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 0 7% 84px;
+    }
+
+    .feature {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(7, 22, 43, 0.78);
+      border: 1px solid rgba(0, 170, 255, 0.2);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(0, 170, 255, 0.12);
+      color: var(--blue);
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: white;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .about {
+      padding-top: 0;
     }
 
     .about-box {
-      padding: 30px;
-      border-radius: 24px;
+      border-radius: 30px;
       border: 1px solid var(--line);
-      background: rgba(7, 19, 38, 0.78);
+      background:
+        radial-gradient(circle at top right, rgba(0, 170, 255, 0.18), transparent 38%),
+        rgba(7, 22, 43, 0.82);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
     }
 
-    .about-box h3 {
-      margin: 0 0 12px;
-      font-size: 24px;
+    .about-box h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.05;
+      text-transform: uppercase;
     }
 
     .about-box p {
-      color: #b6c3d1;
-      line-height: 1.7;
       margin: 0;
+      color: #c7d7e8;
+      font-size: 18px;
+      line-height: 1.75;
     }
 
     .contact {
-      margin: 0 8% 80px;
-      padding: 56px;
-      border-radius: 30px;
+      margin: 0 7% 80px;
+      padding: 58px 34px;
+      border-radius: 32px;
       text-align: center;
       border: 1px solid var(--line);
       background:
-        radial-gradient(circle at top, rgba(56, 189, 248, 0.20), transparent 36%),
-        linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(2, 6, 23, 0.96));
-      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+        radial-gradient(circle at center top, rgba(0, 170, 255, 0.22), transparent 35%),
+        linear-gradient(135deg, rgba(7, 22, 43, 0.96), rgba(2, 8, 23, 0.98));
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.42);
     }
 
     .contact h2 {
-      margin: 0 0 14px;
-      font-size: clamp(32px, 4vw, 50px);
+      margin: 0 0 15px;
+      font-size: clamp(34px, 4.6vw, 58px);
+      text-transform: uppercase;
     }
 
     .contact p {
-      margin: 0 0 22px;
-      color: #cbd5e1;
+      margin: 0 0 24px;
+      color: #c7d7e8;
       font-size: 18px;
       line-height: 1.7;
     }
 
     .email {
-      color: #7dd3fc;
-      font-weight: 800;
-      font-size: 20px;
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 900;
+      text-shadow: 0 0 24px rgba(0, 170, 255, 0.32);
     }
 
     footer {
-      padding: 26px 8%;
-      color: #64748b;
-      border-top: 1px solid rgba(56, 189, 248, 0.16);
       text-align: center;
-      background: rgba(2, 6, 23, 0.9);
+      padding: 28px 7%;
+      color: #8292a8;
+      border-top: 1px solid rgba(0, 170, 255, 0.18);
+      background: rgba(2, 8, 23, 0.94);
+    }
+
+    @media (max-width: 1180px) {
+      .apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-band {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 900px) {
-      .hero,
-      .about-grid {
+      .hero {
         grid-template-columns: 1fr;
       }
 
-      .hero-visual {
-        min-height: 390px;
+      .hero-card {
+        min-height: 460px;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 680px) {
-      header {
+      .top-bar {
         align-items: flex-start;
         flex-direction: column;
-        gap: 18px;
+        gap: 16px;
       }
 
       nav a {
@@ -429,26 +529,31 @@
 
       .hero,
       section {
-        padding-left: 6%;
-        padding-right: 6%;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .apps-grid,
+      .feature-band,
+      .hero-logos {
+        grid-template-columns: 1fr;
       }
 
       .contact {
-        margin-left: 6%;
-        margin-right: 6%;
-        padding: 34px 22px;
+        margin-left: 5%;
+        margin-right: 5%;
       }
 
-      .floating-card {
-        width: 210px;
+      .logo-wrap {
+        height: 230px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="top-bar">
     <div class="brand">
-      <div class="brand-mark">H</div>
+      <div class="brand-icon">H</div>
       <div>Harmany Technologies</div>
     </div>
     <nav>
@@ -460,165 +565,119 @@
 
   <main>
     <section class="hero">
-      <div>
-        <div class="badge"><span class="pulse"></span> Building practical technology for real business problems</div>
-        <h1><span class="gradient-text">Software built</span><br />for business growth.</h1>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="spark"></span> Technology that connects. Solutions that matter.</div>
+        <h1>Building apps that solve <span class="blue-text">real world problems.</span></h1>
         <p>
-          Harmany Technologies is developing a focused group of digital tools for hiring, property management, cleaning services, branding, and field operations.
+          Harmany Technologies develops practical software for hiring, property management, cleaning services, branding, and business operations.
         </p>
-        <div class="hero-actions">
-          <a class="button" href="#apps">View Our Apps</a>
-          <a class="button secondary" href="#contact">Contact Harmany</a>
+        <div class="hero-buttons">
+          <a class="btn" href="#apps">View Apps</a>
+          <a class="btn secondary" href="#contact">Contact Us</a>
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Technology dashboard visual">
-        <div class="dashboard-bar">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-        <svg viewBox="0 0 600 260" role="img" aria-label="Digital business network">
-          <defs>
-            <linearGradient id="lineGrad" x1="0" x2="1">
-              <stop offset="0" stop-color="#38bdf8" />
-              <stop offset="1" stop-color="#2563eb" />
-            </linearGradient>
-          </defs>
-          <path d="M70 190 C160 40, 250 230, 335 95 S500 120, 540 50" fill="none" stroke="url(#lineGrad)" stroke-width="5" opacity="0.9" />
-          <circle cx="70" cy="190" r="14" fill="#38bdf8" />
-          <circle cx="210" cy="130" r="16" fill="#7dd3fc" />
-          <circle cx="335" cy="95" r="18" fill="#2563eb" />
-          <circle cx="470" cy="105" r="15" fill="#38bdf8" />
-          <circle cx="540" cy="50" r="18" fill="#7dd3fc" />
-          <g opacity="0.24" stroke="#7dd3fc">
-            <line x1="70" y1="190" x2="210" y2="130" />
-            <line x1="210" y1="130" x2="335" y2="95" />
-            <line x1="335" y1="95" x2="470" y2="105" />
-            <line x1="470" y1="105" x2="540" y2="50" />
-          </g>
-        </svg>
-        <div class="matrix-lines">
-          <div class="data-line"></div>
-          <div class="data-line"></div>
-          <div class="data-line"></div>
-          <div class="data-line"></div>
-        </div>
-        <div class="orb"></div>
-        <div class="floating-card">
-          <strong>Connected platforms</strong>
-          <span>One company building tools across multiple industries.</span>
+      <div class="hero-card">
+        <div class="display-panel">
+          <div>
+            <div class="panel-title">Harmany <span>Technologies</span></div>
+            <div class="mini-grid">
+              <div class="mini-box"><strong>Innovative solutions</strong><span>Smart, scalable software for business needs.</span></div>
+              <div class="mini-box"><strong>Built for people</strong><span>Focused apps that are simple to understand.</span></div>
+              <div class="mini-box"><strong>Reliable systems</strong><span>Designed for practical use and long term growth.</span></div>
+              <div class="mini-box"><strong>Built for growth</strong><span>Technology that can scale with the business.</span></div>
+            </div>
+          </div>
+          <div class="hero-logos">
+            <div class="hero-logo-box"><img src="workbridge.png" alt="WorkBridge logo"></div>
+            <div class="hero-logo-box"><img src="landlord.png" alt="Landlord Ledger logo"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="apps">
-      <div class="section-head">
-        <h2>Apps under development</h2>
+      <div class="section-title">
+        <h2>Our app portfolio</h2>
         <p>
-          Each product is being designed around simple workflows, clean user experience, and practical business value.
+          A growing group of apps designed under one company, each focused on a clear business problem and a simple user experience.
         </p>
       </div>
 
-      <div class="cards">
-        <div class="card">
-          <div class="app-image">
-            <svg viewBox="0 0 600 360" aria-label="WorkBridge visual">
-              <rect width="600" height="360" fill="#061124" />
-              <circle cx="160" cy="175" r="70" fill="#2563eb" opacity="0.8" />
-              <circle cx="440" cy="175" r="70" fill="#38bdf8" opacity="0.78" />
-              <path d="M220 175 H380" stroke="#7dd3fc" stroke-width="18" stroke-linecap="round" />
-              <rect x="110" y="265" width="380" height="26" rx="13" fill="#7dd3fc" opacity="0.55" />
-              <text x="300" y="72" text-anchor="middle" fill="#e0f2fe" font-size="34" font-family="Arial" font-weight="700">WorkBridge</text>
-            </svg>
+      <div class="apps-grid">
+        <article class="app-card">
+          <div class="logo-wrap"><img src="workbridge.png" alt="WorkBridge logo"></div>
+          <div class="app-content">
+            <h3>WorkBridge</h3>
+            <p>A job and candidate matching platform for trades, management, safety professionals, and companies looking for qualified people.</p>
+            <span class="status">In Development</span>
           </div>
-          <h3>WorkBridge</h3>
-          <p>
-            A job and candidate matching platform for trades, safety, management, and companies looking for qualified people.
-          </p>
-          <span class="status">In Development</span>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="app-image">
-            <svg viewBox="0 0 600 360" aria-label="Landlord Ledger visual">
-              <rect width="600" height="360" fill="#061124" />
-              <rect x="150" y="80" width="300" height="220" rx="18" fill="#0b1f3a" stroke="#38bdf8" stroke-width="4" />
-              <rect x="190" y="120" width="220" height="26" rx="13" fill="#7dd3fc" opacity="0.8" />
-              <rect x="190" y="170" width="170" height="18" rx="9" fill="#2563eb" opacity="0.9" />
-              <rect x="190" y="210" width="210" height="18" rx="9" fill="#38bdf8" opacity="0.7" />
-              <rect x="190" y="250" width="140" height="18" rx="9" fill="#7dd3fc" opacity="0.55" />
-              <text x="300" y="52" text-anchor="middle" fill="#e0f2fe" font-size="30" font-family="Arial" font-weight="700">Landlord Ledger</text>
-            </svg>
+        <article class="app-card">
+          <div class="logo-wrap"><img src="landlord.png" alt="Landlord Ledger logo"></div>
+          <div class="app-content">
+            <h3>Landlord Ledger</h3>
+            <p>A rental property management app for tracking tenants, payments, expenses, documents, and accounting exports.</p>
+            <span class="status">Available on Google Play</span>
           </div>
-          <h3>Landlord Ledger</h3>
-          <p>
-            A rental property management app for tracking tenants, payments, expenses, documents, and accounting exports.
-          </p>
-          <span class="status">Available on Google Play</span>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="app-image">
-            <svg viewBox="0 0 600 360" aria-label="Cleaning app visual">
-              <rect width="600" height="360" fill="#061124" />
-              <path d="M185 245 C250 120, 350 120, 415 245" fill="none" stroke="#38bdf8" stroke-width="16" stroke-linecap="round" />
-              <circle cx="300" cy="165" r="62" fill="#2563eb" opacity="0.82" />
-              <path d="M300 98 L318 145 L368 145 L327 174 L344 222 L300 192 L256 222 L273 174 L232 145 L282 145 Z" fill="#7dd3fc" />
-              <text x="300" y="68" text-anchor="middle" fill="#e0f2fe" font-size="31" font-family="Arial" font-weight="700">Cleaning Platform</text>
-            </svg>
+        <article class="app-card">
+          <div class="logo-wrap"><img src="cleaning.png" alt="Harmany Cleaning Solutions logo"></div>
+          <div class="app-content">
+            <h3>Harmany Cleaning Solutions</h3>
+            <p>A booking and scheduling platform for residential and commercial cleaning services, built for simple customer requests.</p>
+            <span class="status">Planned</span>
           </div>
-          <h3>Harmany Cleaning Solutions</h3>
-          <p>
-            A booking and scheduling platform for residential and commercial cleaning services with simple customer requests.
-          </p>
-          <span class="status">Planned</span>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="app-image">
-            <svg viewBox="0 0 600 360" aria-label="BullyLogoAI visual">
-              <rect width="600" height="360" fill="#061124" />
-              <polygon points="300,72 430,150 430,275 300,325 170,275 170,150" fill="#0b1f3a" stroke="#38bdf8" stroke-width="5" />
-              <circle cx="255" cy="178" r="18" fill="#7dd3fc" />
-              <circle cx="345" cy="178" r="18" fill="#7dd3fc" />
-              <path d="M250 240 Q300 270 350 240" fill="none" stroke="#2563eb" stroke-width="14" stroke-linecap="round" />
-              <text x="300" y="52" text-anchor="middle" fill="#e0f2fe" font-size="31" font-family="Arial" font-weight="700">BullyLogoAI</text>
-            </svg>
+        <article class="app-card">
+          <div class="logo-wrap"><img src="bullylogoai.png" alt="BullyLogoAI logo"></div>
+          <div class="app-content">
+            <h3>BullyLogoAI</h3>
+            <p>An AI assisted logo and branding tool for creating sharp business logos and downloadable brand asset packages.</p>
+            <span class="status">Planned</span>
           </div>
-          <h3>BullyLogoAI</h3>
-          <p>
-            An AI assisted logo and branding tool for creating sharp business logos and downloadable brand assets.
-          </p>
-          <span class="status">Planned</span>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="about">
-      <div class="section-head">
-        <h2>Built from real experience</h2>
-        <p>
-          Harmany Technologies is focused on practical software that solves everyday problems for business owners, workers, landlords, and service providers.
-        </p>
+    <div class="feature-band">
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Innovative solutions</h3>
+        <p>We build smart, scalable tools for real business problems.</p>
       </div>
-      <div class="about-grid">
-        <div class="about-box">
-          <h3>Simple tools</h3>
-          <p>We focus on clear workflows, clean screens, and software that regular users can understand without unnecessary complexity.</p>
-        </div>
-        <div class="about-box">
-          <h3>Business focused</h3>
-          <p>Every product is designed around real operations, revenue potential, and problems that show up in the field, office, or rental business.</p>
-        </div>
+      <div class="feature">
+        <div class="feature-icon">👥</div>
+        <h3>Built for people</h3>
+        <p>Our apps are designed for users who need simple, practical systems.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡</div>
+        <h3>Reliable and secure</h3>
+        <p>Security, reliability, and ownership remain core priorities.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <h3>Built for growth</h3>
+        <p>Technology that supports future expansion across multiple industries.</p>
+      </div>
+    </div>
+
+    <section id="about" class="about">
+      <div class="about-box">
+        <h2>One company. Multiple solutions.</h2>
+        <p>
+          Harmany Technologies is building a practical software portfolio focused on business tools that are useful, clean, and easy to understand. Each app is being developed to solve a real problem and create long term value.
+        </p>
       </div>
     </section>
 
     <section id="contact" class="contact">
       <h2>Connect with Harmany Technologies</h2>
-      <p>
-        For business inquiries, partnerships, early access, or product information, contact us anytime.
-      </p>
+      <p>For business inquiries, partnerships, early access, or product information, contact us anytime.</p>
       <div class="email">harmanytechnologies@gmail.com</div>
     </section>
   </main>
@@ -628,3 +687,4 @@
   </footer>
 </body>
 </html>
+
