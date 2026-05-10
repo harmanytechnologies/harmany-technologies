@@ -45,7 +45,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 22px 7%;
-      background: rgba(2, 6, 23, 0.86);
+      background: rgba(2, 6, 23, 0.9);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(56, 189, 248, 0.24);
     }
@@ -63,12 +63,9 @@
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      object-fit: cover;
       box-shadow: 0 0 28px rgba(56, 189, 248, 0.55);
-      font-weight: 900;
-      color: #020617;
+      background: #020617;
     }
 
     .nav-links {
@@ -86,11 +83,14 @@
     .hero {
       min-height: 88vh;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr;
       align-items: center;
-      gap: 48px;
       padding: 90px 7% 70px;
       position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.72), rgba(2, 6, 23, 0.38)),
+        url("Harmany tech cover photo.png") center / cover no-repeat;
     }
 
     .hero::before {
@@ -101,13 +101,13 @@
         linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
       background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 88%);
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
+      max-width: 880px;
     }
 
     .eyebrow {
@@ -128,6 +128,7 @@
       line-height: 1;
       letter-spacing: -0.06em;
       margin-bottom: 26px;
+      text-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
     }
 
     .hero h1 span {
@@ -138,9 +139,10 @@
 
     .hero p {
       max-width: 760px;
-      color: #cbd5e1;
+      color: #e2e8f0;
       font-size: 1.18rem;
       margin-bottom: 34px;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
     }
 
     .actions {
@@ -169,69 +171,11 @@
     .button.secondary {
       border: 1px solid rgba(148, 163, 184, 0.38);
       color: #e2e8f0;
-      background: rgba(15, 23, 42, 0.55);
+      background: rgba(15, 23, 42, 0.65);
     }
 
     .button:hover {
       transform: translateY(-2px);
-    }
-
-    .hero-panel {
-      position: relative;
-      z-index: 2;
-      border: 1px solid rgba(56, 189, 248, 0.22);
-      background: rgba(2, 6, 23, 0.64);
-      border-radius: 32px;
-      padding: 28px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-      overflow: hidden;
-    }
-
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      right: -120px;
-      top: -120px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.16);
-      filter: blur(4px);
-    }
-
-    .panel-title {
-      position: relative;
-      z-index: 2;
-      color: #7dd3fc;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 22px;
-    }
-
-    .signal-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 14px;
-    }
-
-    .signal {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      background: rgba(15, 23, 42, 0.74);
-    }
-
-    .signal strong {
-      display: block;
-      color: #ffffff;
-      margin-bottom: 5px;
-    }
-
-    .signal span {
-      color: #94a3b8;
-      font-size: 0.95rem;
     }
 
     section {
@@ -257,7 +201,7 @@
 
     .about-card {
       border: 1px solid rgba(56, 189, 248, 0.2);
-      background: rgba(15, 23, 42, 0.68);
+      background: rgba(15, 23, 42, 0.72);
       border-radius: 28px;
       padding: 34px;
       box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
@@ -272,23 +216,64 @@
     .product-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
     .product-card {
       min-height: 100%;
+      position: relative;
+      overflow: hidden;
       border: 1px solid rgba(56, 189, 248, 0.2);
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(2, 6, 23, 0.82));
       border-radius: 28px;
       padding: 26px;
       transition: 0.25s ease;
       box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
+      background: #020617;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.52), rgba(2, 6, 23, 0.94));
+      z-index: 1;
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      z-index: 2;
+      pointer-events: none;
     }
 
     .product-card:hover {
       transform: translateY(-5px);
       border-color: rgba(56, 189, 248, 0.58);
       box-shadow: 0 24px 84px rgba(14, 165, 233, 0.16);
+    }
+
+    .product-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+
+    .product-content {
+      position: relative;
+      z-index: 3;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     .product-top {
@@ -299,38 +284,38 @@
       margin-bottom: 18px;
     }
 
-    .app-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.95), rgba(30, 64, 175, 0.95));
-      color: #020617;
-      font-weight: 900;
-      font-size: 1.25rem;
+    .app-logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 22px;
+      object-fit: cover;
+      background: #020617;
+      border: 1px solid rgba(125, 211, 252, 0.28);
       box-shadow: 0 0 28px rgba(56, 189, 248, 0.32);
     }
 
     .status {
       color: #bae6fd;
-      border: 1px solid rgba(125, 211, 252, 0.26);
-      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(125, 211, 252, 0.3);
+      background: rgba(2, 6, 23, 0.78);
       border-radius: 999px;
       padding: 7px 11px;
       font-size: 0.8rem;
       white-space: nowrap;
+      backdrop-filter: blur(12px);
     }
 
     .product-card h3 {
-      font-size: 1.42rem;
+      font-size: 1.55rem;
       margin-bottom: 10px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.9);
     }
 
     .product-card p {
-      color: #cbd5e1;
+      color: #e2e8f0;
       margin-bottom: 18px;
       font-size: 0.98rem;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.9);
     }
 
     .platforms {
@@ -342,24 +327,51 @@
 
     .platform {
       color: #e0f2fe;
-      background: rgba(30, 41, 59, 0.88);
-      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(2, 6, 23, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.24);
       padding: 7px 10px;
       border-radius: 999px;
       font-size: 0.82rem;
+      backdrop-filter: blur(10px);
     }
 
     .feature-list {
       display: grid;
       gap: 8px;
-      color: #94a3b8;
+      color: #cbd5e1;
       font-size: 0.92rem;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.9);
     }
 
     .feature-list div::before {
       content: "•";
       color: #38bdf8;
       margin-right: 8px;
+    }
+
+    .placeholder-card .product-bg {
+      opacity: 0.18;
+      filter: blur(1px);
+    }
+
+    .placeholder-card {
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.26), transparent 42%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+    }
+
+    .placeholder-logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      color: #020617;
+      font-weight: 900;
+      font-size: 1.3rem;
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.32);
     }
 
     .contact-wrap {
@@ -403,21 +415,13 @@
       gap: 14px;
     }
 
-    @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 1100px) {
       .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .nav {
         align-items: flex-start;
         gap: 16px;
@@ -430,10 +434,19 @@
       }
 
       .hero {
+        min-height: 82vh;
         padding-top: 62px;
       }
 
       .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-content {
+        min-height: 500px;
+      }
+
+      .contact-wrap {
         grid-template-columns: 1fr;
       }
 
@@ -447,7 +460,7 @@
   <main class="page">
     <nav class="nav">
       <a href="#home" class="brand" aria-label="Harmany Technologies home">
-        <div class="brand-mark">HT</div>
+        <img class="brand-mark" src="Harmany tech cover photo.png" alt="Harmany Technologies logo" />
         <div>Harmany Technologies</div>
       </a>
       <div class="nav-links">
@@ -461,7 +474,7 @@
     <header id="home" class="hero">
       <div class="hero-content">
         <div class="eyebrow">Canadian software company based in Edmonton</div>
-        <h1>Building digital solutions for <span>real world industries</span></h1>
+        <h1>Building apps that solve <span>real world problems</span></h1>
         <p>
           Harmany Technologies develops practical software solutions for workforce management, construction operations,
           property management, service businesses, and AI powered business tools.
@@ -471,28 +484,6 @@
           <a class="button secondary" href="#contact">Contact Harmany</a>
         </div>
       </div>
-
-      <aside class="hero-panel" aria-label="Company focus areas">
-        <div class="panel-title">Company Focus</div>
-        <div class="signal-grid">
-          <div class="signal">
-            <strong>Workforce Platforms</strong>
-            <span>Digital systems that connect companies with skilled workers and leadership talent.</span>
-          </div>
-          <div class="signal">
-            <strong>Construction Operations</strong>
-            <span>Tools for estimating, change orders, scaffold tracking, invoicing, and jobsite management.</span>
-          </div>
-          <div class="signal">
-            <strong>Business Automation</strong>
-            <span>Practical applications that simplify daily operations for service and property based businesses.</span>
-          </div>
-          <div class="signal">
-            <strong>AI Powered Tools</strong>
-            <span>Modern systems designed to speed up planning, branding, estimating, and documentation workflows.</span>
-          </div>
-        </div>
-      </aside>
     </header>
 
     <section id="about">
@@ -528,191 +519,213 @@
 
       <div class="product-grid">
         <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">WB</div>
-            <div class="status">In Development</div>
-          </div>
-          <h3>WorkBridge</h3>
-          <p>
-            A workforce connection platform designed to help companies connect with skilled tradespeople, supervisors,
-            managers, and construction professionals.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform In Development</span>
-            <span class="platform">iOS Coming Soon</span>
-            <span class="platform">Android Coming Soon</span>
-          </div>
-          <div class="feature-list">
-            <div>Worker profiles and resume uploads</div>
-            <div>Company recruitment dashboard</div>
-            <div>Advanced trade and leadership filtering</div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">LL</div>
-            <div class="status">Available Now</div>
-          </div>
-          <h3>Landlord Ledger</h3>
-          <p>
-            A property management application designed for landlords and property managers to track rental properties,
-            tenants, expenses, maintenance records, and financial reporting.
-          </p>
-          <div class="platforms">
-            <span class="platform">Android Available</span>
-            <span class="platform">iOS Coming Soon</span>
-            <span class="platform">Web Platform Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>Property and tenant tracking</div>
-            <div>Expense and maintenance records</div>
-            <div>Excel export functionality</div>
+          <img class="product-bg" src="workbridge logo.png" alt="WorkBridge logo background" />
+          <div class="product-content">
+            <div class="product-top">
+              <img class="app-logo" src="workbridge logo.png" alt="WorkBridge logo" />
+              <div class="status">In Development</div>
+            </div>
+            <h3>WorkBridge</h3>
+            <p>
+              A workforce connection platform designed to help companies connect with skilled tradespeople, supervisors,
+              managers, and construction professionals.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform In Development</span>
+              <span class="platform">iOS Coming Soon</span>
+              <span class="platform">Android Coming Soon</span>
+            </div>
+            <div class="feature-list">
+              <div>Worker profiles and resume uploads</div>
+              <div>Company recruitment dashboard</div>
+              <div>Advanced trade and leadership filtering</div>
+            </div>
           </div>
         </article>
 
         <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">HC</div>
-            <div class="status">In Development</div>
-          </div>
-          <h3>Harmany Cleaning Solutions</h3>
-          <p>
-            A booking and operations platform designed to support residential and commercial cleaning services with scheduling,
-            invoicing, recurring services, and service tracking.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform Planned</span>
-            <span class="platform">iOS Planned</span>
-            <span class="platform">Android Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>Online booking and recurring scheduling</div>
-            <div>Before and after photo records</div>
-            <div>Automated invoicing and payment workflows</div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">BL</div>
-            <div class="status">In Development</div>
-          </div>
-          <h3>BullyLogoAI</h3>
-          <p>
-            An AI powered logo development platform focused on helping businesses create clean, modern, professional branding concepts.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform Planned</span>
-            <span class="platform">Mobile Platforms Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>AI generated logo concepts</div>
-            <div>3D logo style options</div>
-            <div>High resolution file downloads planned</div>
+          <img class="product-bg" src="Landlord ledger Logo.png" alt="Landlord Ledger logo background" />
+          <div class="product-content">
+            <div class="product-top">
+              <img class="app-logo" src="Landlord ledger Logo.png" alt="Landlord Ledger logo" />
+              <div class="status">Available Now</div>
+            </div>
+            <h3>Landlord Ledger</h3>
+            <p>
+              A property management application designed for landlords and property managers to track rental properties,
+              tenants, expenses, maintenance records, and financial reporting.
+            </p>
+            <div class="platforms">
+              <span class="platform">Android Available</span>
+              <span class="platform">iOS Coming Soon</span>
+              <span class="platform">Web Platform Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Property and tenant tracking</div>
+              <div>Expense and maintenance records</div>
+              <div>Excel export functionality</div>
+            </div>
           </div>
         </article>
 
         <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">SA</div>
-            <div class="status">Concept Development</div>
-          </div>
-          <h3>Scaff AI</h3>
-          <p>
-            A scaffolding planning and estimating system focused on scaffold design workflows, material tracking,
-            labor forecasting, and operational estimating.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform Planned</span>
-            <span class="platform">Enterprise Platform Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>Material and labor forecasting</div>
-            <div>Scaffold estimate support</div>
-            <div>Operational planning tools</div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">IA</div>
-            <div class="status">Concept Development</div>
-          </div>
-          <h3>Insulation AI</h3>
-          <p>
-            An industrial insulation estimating and operations platform designed to improve project estimating,
-            material calculations, and labor planning.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>Industrial insulation estimating</div>
-            <div>Material calculation workflows</div>
-            <div>Labor planning support</div>
+          <img class="product-bg" src="Cleaning Logo.jpg" alt="Harmany Cleaning Solutions logo background" />
+          <div class="product-content">
+            <div class="product-top">
+              <img class="app-logo" src="Cleaning Logo.jpg" alt="Harmany Cleaning Solutions logo" />
+              <div class="status">In Development</div>
+            </div>
+            <h3>Harmany Cleaning Solutions</h3>
+            <p>
+              A booking and operations platform designed to support residential and commercial cleaning services with scheduling,
+              invoicing, recurring services, and service tracking.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform Planned</span>
+              <span class="platform">iOS Planned</span>
+              <span class="platform">Android Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Online booking and recurring scheduling</div>
+              <div>Before and after photo records</div>
+              <div>Automated invoicing and payment workflows</div>
+            </div>
           </div>
         </article>
 
         <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">SO</div>
-            <div class="status">Internal System Development</div>
-          </div>
-          <h3>Scaffold Operations Database</h3>
-          <p>
-            A digital operations system focused on scaffold tracking, tag management, material inventory, invoicing,
-            labor tracking, and operational reporting.
-          </p>
-          <div class="platforms">
-            <span class="platform">Mobile Platform Planned</span>
-            <span class="platform">Web Platform Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>Tag based scaffold tracking</div>
-            <div>Material inventory and billing support</div>
-            <div>Labor and equipment reporting</div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">RB</div>
-            <div class="status">Planning Phase</div>
-          </div>
-          <h3>Resume Builder</h3>
-          <p>
-            A simplified resume creation platform designed to help users build professional resumes through guided templates
-            and structured workflows.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform Planned</span>
-            <span class="platform">Mobile Platforms Planned</span>
-          </div>
-          <div class="feature-list">
-            <div>Guided resume builder</div>
-            <div>Professional templates planned</div>
-            <div>Export and profile support planned</div>
+          <img class="product-bg" src="bullylogoai.png" alt="BullyLogoAI logo background" />
+          <div class="product-content">
+            <div class="product-top">
+              <img class="app-logo" src="bullylogoai.png" alt="BullyLogoAI logo" />
+              <div class="status">In Development</div>
+            </div>
+            <h3>BullyLogoAI</h3>
+            <p>
+              An AI powered logo development platform focused on helping businesses create clean, modern, professional branding concepts.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform Planned</span>
+              <span class="platform">Mobile Platforms Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>AI generated logo concepts</div>
+              <div>3D logo style options</div>
+              <div>High resolution file downloads planned</div>
+            </div>
           </div>
         </article>
 
-        <article class="product-card">
-          <div class="product-top">
-            <div class="app-icon">CO</div>
-            <div class="status">Planning Phase</div>
+        <article class="product-card placeholder-card">
+          <div class="product-content">
+            <div class="product-top">
+              <div class="placeholder-logo">SA</div>
+              <div class="status">Concept Development</div>
+            </div>
+            <h3>Scaff AI</h3>
+            <p>
+              A scaffolding planning and estimating system focused on scaffold design workflows, material tracking,
+              labor forecasting, and operational estimating.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform Planned</span>
+              <span class="platform">Enterprise Platform Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Material and labor forecasting</div>
+              <div>Scaffold estimate support</div>
+              <div>Operational planning tools</div>
+            </div>
           </div>
-          <h3>Change Order App</h3>
-          <p>
-            A construction focused application designed to simplify change order tracking, approvals, pricing adjustments,
-            and documentation management.
-          </p>
-          <div class="platforms">
-            <span class="platform">Web Platform Planned</span>
+        </article>
+
+        <article class="product-card placeholder-card">
+          <div class="product-content">
+            <div class="product-top">
+              <div class="placeholder-logo">IA</div>
+              <div class="status">Concept Development</div>
+            </div>
+            <h3>Insulation AI</h3>
+            <p>
+              An industrial insulation estimating and operations platform designed to improve project estimating,
+              material calculations, and labor planning.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Industrial insulation estimating</div>
+              <div>Material calculation workflows</div>
+              <div>Labor planning support</div>
+            </div>
           </div>
-          <div class="feature-list">
-            <div>Change order tracking</div>
-            <div>Approval workflow support</div>
-            <div>Pricing and documentation management</div>
+        </article>
+
+        <article class="product-card placeholder-card">
+          <div class="product-content">
+            <div class="product-top">
+              <div class="placeholder-logo">SO</div>
+              <div class="status">Internal System Development</div>
+            </div>
+            <h3>Scaffold Operations Database</h3>
+            <p>
+              A digital operations system focused on scaffold tracking, tag management, material inventory, invoicing,
+              labor tracking, and operational reporting.
+            </p>
+            <div class="platforms">
+              <span class="platform">Mobile Platform Planned</span>
+              <span class="platform">Web Platform Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Tag based scaffold tracking</div>
+              <div>Material inventory and billing support</div>
+              <div>Labor and equipment reporting</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card placeholder-card">
+          <div class="product-content">
+            <div class="product-top">
+              <div class="placeholder-logo">RB</div>
+              <div class="status">Planning Phase</div>
+            </div>
+            <h3>Resume Builder</h3>
+            <p>
+              A simplified resume creation platform designed to help users build professional resumes through guided templates
+              and structured workflows.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform Planned</span>
+              <span class="platform">Mobile Platforms Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Guided resume builder</div>
+              <div>Professional templates planned</div>
+              <div>Export and profile support planned</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card placeholder-card">
+          <div class="product-content">
+            <div class="product-top">
+              <div class="placeholder-logo">CO</div>
+              <div class="status">Planning Phase</div>
+            </div>
+            <h3>Change Order App</h3>
+            <p>
+              A construction focused application designed to simplify change order tracking, approvals, pricing adjustments,
+              and documentation management.
+            </p>
+            <div class="platforms">
+              <span class="platform">Web Platform Planned</span>
+            </div>
+            <div class="feature-list">
+              <div>Change order tracking</div>
+              <div>Approval workflow support</div>
+              <div>Pricing and documentation management</div>
+            </div>
           </div>
         </article>
       </div>
